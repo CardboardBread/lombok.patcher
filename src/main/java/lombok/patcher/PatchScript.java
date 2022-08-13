@@ -98,7 +98,7 @@ public abstract class PatchScript {
 	
 	/**
 	 * Runs ASM on the provider byteCode, chaining a reader to a writer and using the {@code ClassVisitor} you yourself provide
-	 * via the {@see #createClassVisitor(ClassWriter)} method as the filter.
+	 * via the {@link #createClassVisitor(ClassWriter, String, TransplantMapper)} method as the filter.
 	 */
 	protected byte[] runASM(byte[] byteCode, boolean computeStacks, TransplantMapper transplantMapper) {
 		ClassReader reader = new ClassReader(byteCode);
@@ -115,7 +115,7 @@ public abstract class PatchScript {
 	}
 	
 	/**
-	 * You need to override this method if you want to call {@see #runASM(byte[])}.
+	 * You need to override this method if you want to call {@link #runASM(byte[], boolean, TransplantMapper)}.
 	 * 
 	 * @param writer The parent writer.
 	 * @param classSpec The name of the class you need to make a visitor for.
@@ -125,7 +125,7 @@ public abstract class PatchScript {
 	}
 	
 	/**
-	 * If you want to use the {@see MethodPatcher} class, you need to supply an implementation of this factory.
+	 * If you want to use the {@link MethodPatcher} class, you need to supply an implementation of this factory.
 	 */
 	public interface MethodPatcherFactory {
 		/**
@@ -234,7 +234,7 @@ public abstract class PatchScript {
 	}
 	
 	/**
-	 * Convenience implementation of the {@code ClassVisitor} that you can return for {@see #createClassVisitor(ClassWriter)};
+	 * Convenience implementation of the {@code ClassVisitor} that you can return for {@link #createClassVisitor(ClassWriter, String, TransplantMapper)};
 	 * it will call into a custom {@code MethodVisitor} for specified methods, and pass through everything else. Perfect if you
 	 * want to rewrite one or more methods.
 	 */

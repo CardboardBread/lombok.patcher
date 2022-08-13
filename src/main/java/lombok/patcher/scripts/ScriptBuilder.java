@@ -42,7 +42,7 @@ import org.objectweb.asm.Opcodes;
  * Transplant means that the code you are trying to inject into another class (generally called the {@code hook}) is copied
  * into the target class. Specifically, you identify a method (the hook) that contains the code that must run as part of the
  * method targeted for manipulation (the target). Transplantation means that the entire hook method, signature and all, is copied
- * straight into the target class. You should definitely make the hook static unless you really know what you are doing.<br />
+ * straight into the target class. You should definitely make the hook static unless you really know what you are doing.<br>
  * <ul>
  * <li>Advantage: Your hook is loaded by the same classloader as the target, which helps a lot with classloader issues</li>
  * <li>Advantage: Whilst you'd have to write it reflectively otherwise your hook can't be compiled, you still get free, unfettered access even to private members of the target</li>
@@ -522,8 +522,8 @@ public class ScriptBuilder {
 	/**
 	 * This script lets you modify a target method to return immediately upon being invoked; this can also be used to replace
 	 * entirely what it does.
-	 * Your can control:<br />
-	 * (optional) Have a 'decider' method which decides whether or not a call to the target should return immediately.<br />
+	 * Your can control:<br>
+	 * (optional) Have a 'decider' method which decides whether or not a call to the target should return immediately.<br>
 	 * (mandatory) The value to be returned. For void methods this is irrelevant, of course.
 	 */
 	public static ExitEarlyBuilder exitEarly() {
