@@ -200,9 +200,27 @@
     <!-- More Project Information -->
     <name>lombok.patcher</name>
     <description>A framework for easily patching JVM programs. Part of Project Lombok.</description>
-    <url>https://github.com/projectlombok/lombok.patcher</url>
+    <url>https://github.com/CardboardBread/lombok.patcher</url>
+    <contributors>
+        <contributor>
+            <name>Michael Brown</name>
+        </contributor>
+    </contributors>
 
     <!-- Environment Settings -->
+    <issueManagement>
+        <system>GitHub Issues</system>
+        <url>https://github.com/CardboardBread/lombok.patcher/issues</url>
+    </issueManagement>
+    <ciManagement>
+        <system>GitHub</system>
+        <url>https://github.com/CardboardBread/lombok.patcher/actions</url>
+    </ciManagement>
+    <scm>
+        <url>https://github.com/CardboardBread/lombok.patcher</url>
+        <connection>scm:git:git://github.com/CardboardBread/lombok.patcher.git</connection>
+        <developerConnection>scm:git:git://github.com/CardboardBread/lombok.patcher.git</developerConnection>
+    </scm>
     <distributionManagement>
         <repository>
             <id>internal</id>
@@ -210,4 +228,19 @@
             <url>file://${project.build.directory}/maven-artifact</url>
         </repository>
     </distributionManagement>
+    <profiles>
+        <profile>
+            <id>github</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <distributionManagement>
+                <repository>
+                    <id>github</id>
+                    <name>Github Apache Maven Package Repository</name>
+                    <url>https://maven.pkg.github.com/CardboardBread/lombok.patcher</url>
+                </repository>
+            </distributionManagement>
+        </profile>
+    </profiles>
 </project>
